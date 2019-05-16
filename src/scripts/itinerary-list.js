@@ -18,35 +18,35 @@ const itineraryList = {
                         if(oneInterest.placeId == place.id)
                             return oneInterest
                     });
-                    let placesOfInterest = "";
-                    interestName.forEach(interest => {
-                        placesOfInterest += `
-                        <li>${interest.name} 
-                        <a href="#" data-toggle="modal" data-target="#edit-post-modal" class="badge badge-info edit-post-link" data-id="${interest.id}">Edit</a>
-                        <a href="#" class="badge badge-info delete-post-link" data-id="${interest.id}">Delete</a>
-                        </li>
-                            <ul>
-                                <li>Description: ${interest.description}</li>
-                                <li>Cost: ${interest.cost == 0.00 ? "Free" : "$"+interest.cost}</li>
-                                <li>Review: ${interest.review == null ? "<i>Please add a review</i>" : interest.review}</li>
-                            </ul>
-                        `
-                    });
-                    placesAllHTML += `
-                        <div class="card">
-                            <div class="card-body">
-                            <button type="button" class="btn btn-outline-info float-right btn-small delete-place-button">Delete Place</button>
-                            <h5 class="card-title">${place.name}</h5>
-                            <p class="card-text small text-bottom font-italic">
-                            ${place.visa_required == true ? "Don't forget your Visa" : "No Visa required"}
-                            </p>
-                            <ul class="card-text">
-                                ${placesOfInterest}
-                            </ul>
-                            </div>
-                        </div>
+                let placesOfInterest = "";
+                interestName.forEach(interest => {
+                    placesOfInterest += `
+                    <li>${interest.name} 
+                    <a href="#" data-toggle="modal" data-target="#edit-post-modal" class="badge badge-info edit-post-link" data-id="${interest.id}">Edit</a>
+                    <a href="#" class="badge badge-info delete-post-link" data-id="${interest.id}">Delete</a>
+                    </li>
+                        <ul>
+                            <li>Description: ${interest.description}</li>
+                            <li>Cost: ${interest.cost == 0.00 ? "Free" : "$"+interest.cost}</li>
+                            <li>Review: ${interest.review == null ? "<i>Please add a review</i>" : interest.review}</li>
+                        </ul>
                     `
                 });
+                placesAllHTML += `
+                    <div class="card">
+                        <div class="card-body">
+                        <button type="button" class="btn btn-outline-info float-right btn-small delete-place-button" data-id="${place.id}">Delete Place</button>
+                        <h5 class="card-title">${place.name}</h5>
+                        <p class="card-text small text-bottom font-italic">
+                        ${place.visa_required == true ? "Don't forget your Visa" : "No Visa required"}
+                        </p>
+                        <ul class="card-text">
+                            ${placesOfInterest}
+                        </ul>
+                        </div>
+                    </div>
+                `
+            });
                 const outEl = document.querySelector(".itinerary-main-output-container");
                 outEl.innerHTML = beginnerDiv + placesAllHTML + endDiv;
                 document.querySelectorAll(".edit-post-link").forEach((link) => {
@@ -78,13 +78,13 @@ const itineraryList = {
                         }
                     })
                 })
-                // document.querySelectorAll(".delete-place-button").forEach((button) => {
-                //     button.addEventListener("click", (event) => {
-                //         apiManager.deletePlace(event.target.dataset.id).then( () => {
-                //             itineraryList.buildItineraryList();
-                //         })
-                //     })
-                // })
+                document.querySelectorAll(".delete-place-button").forEach((button) => {
+                    button.addEventListener("click", (event) => {
+                        apiManager.deletePlace(event.target.dataset.id).then( () => {
+                            itineraryList.buildItineraryList();
+                        })
+                    })
+                })
             })
         })
      }

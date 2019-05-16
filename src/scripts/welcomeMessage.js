@@ -25,7 +25,7 @@ const welcomeMessage = {
         topEl.innerHTML = jumbotronHTML;
         document.querySelector(".view-all-posts").addEventListener("click", () => {
             document.querySelector("#itinerary-tab").click();
-          });
+        });
     }
 }
 
