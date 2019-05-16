@@ -27,7 +27,7 @@ const itineraryList = {
                         </li>
                             <ul>
                                 <li>Description: ${interest.description}</li>
-                                <li>Cost: ${interest.cost == 0.00 ? "Free" : interest.cost}</li>
+                                <li>Cost: ${interest.cost == 0.00 ? "Free" : "$"+interest.cost}</li>
                                 <li>Review: ${interest.review == null ? "<i>Please add a review</i>" : interest.review}</li>
                             </ul>
                         `
