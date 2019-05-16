@@ -38,7 +38,7 @@ const itineraryList = {
                         <button type="button" class="btn btn-outline-info float-right btn-small delete-place-button" data-id="${place.id}">Delete Place</button>
                         <h5 class="card-title">${place.name}</h5>
                         <p class="card-text small text-bottom font-italic">
-                        ${place.visa_required == true ? "Don't forget your Visa" : "No Visa required"}
+                        ${place.visa_required ? "Don't forget your Visa" : "No Visa required"}
                         </p>
                         <ul class="card-text">
                             ${placesOfInterest}

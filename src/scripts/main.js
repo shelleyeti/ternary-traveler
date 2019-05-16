@@ -2,7 +2,6 @@ import itineraryList from "./itinerary-list"
 import welcomeMessage from "./welcomeMessage"
 import saveToDB from "./saveToDB"
 import getPlaceChoices from "./populateMenu"
-import APImanager from "./apiManager";
 
 welcomeMessage.printToDOM();
 itineraryList.buildItineraryList();

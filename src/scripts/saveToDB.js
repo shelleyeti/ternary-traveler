@@ -28,7 +28,7 @@ const savetoDB = {
                     apiManager.makePlace({
                         name: placeInput,
                         visa_required: false
-                        //ties the new interest to the new place
+                    //ties the new interest to the new place
                     }).then((place) => {
                         apiManager.makeInterest({
                             placeId: place.id,
@@ -61,6 +61,7 @@ const savetoDB = {
         let editCost = document.querySelector(".cost-edit-field").value;
         let editReview = document.querySelector(".review-edit-field").value;
         let visaRequired = document.querySelector(".required-edit-field");
+        //just to start with something, without could not check against place
         let placeId = 0;
         if (editInterest !== "" && editDescription !== "" && editCost !== "") {
             apiManager.getAllPlaces().then((places) => {
@@ -69,30 +70,39 @@ const savetoDB = {
                     if (place.name == placeInput)
                         placeId = place.id;
                 });
+                //makes new place
                 if (placeId === 0) {
                     apiManager.makePlace({
                         name: placeInput,
-                        visa_required: false
+                        visa_required: visaRequired.checked ? true : false
+                    //ties the new interest to the new place
                     }).then((place) => {
                         apiManager.makeInterest({
                             placeId: place.id,
                             name: editInterest,
                             description: editDescription,
                             cost: parseInt(editCost),
-                            review: editReview,
-                            visa_required: visaRequired.checked ? true : false
+                            review: editReview
                         }).then(() => {
                             itineraryList.buildItineraryList();
                         })
                     });
-                } else {
+                //it just ties the interest to the exsisting place
+                } else if (placeId !== 0) {
+                    //place is undefined
+                    apiManager.updatePlace(placeId, {
+                        name:placeInput,
+                        visa_required: visaRequired.checked ? true : false
+                    })
+                }
+                {
                     apiManager.updateInterest(window.editId, {
+                        //comes from the if place.name == placeInput
                         placeId: placeId,
                         name: editInterest,
                         description: editDescription,
                         cost: parseInt(editCost),
-                        review: editReview,
-                        visa_required: visaRequired.checked ? true : false
+                        review: editReview
                     }).then(() => {
                         itineraryList.buildItineraryList();
                     })
