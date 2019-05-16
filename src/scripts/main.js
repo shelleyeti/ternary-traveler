@@ -15,8 +15,8 @@ window.editId = 0;
 
 document.querySelector(".save-input-button").addEventListener("click", (event) => {
     saveToDB.addNewInterest();
+});
 
-})
 document.querySelector(".update-input-button").addEventListener("click", (event) => {
     saveToDB.editInterest();
 })

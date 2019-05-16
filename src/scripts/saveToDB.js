@@ -33,6 +33,8 @@ const savetoDB ={
                             name: newInterest,
                             description: newDescription,
                             cost: parseInt(newCost)
+                        }).then(() => {
+                            itineraryList.buildItineraryList();
                         })
                     });
                 }else{
@@ -41,6 +43,8 @@ const savetoDB ={
                         name: newInterest,
                         description: newDescription,
                         cost: parseInt(newCost)
+                    }).then(() => {
+                        itineraryList.buildItineraryList();
                     })
                 }
             });
