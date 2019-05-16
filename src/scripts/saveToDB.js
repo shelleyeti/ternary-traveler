@@ -90,8 +90,8 @@ const savetoDB = {
                 //it just ties the interest to the exsisting place
                 } else if (placeId !== 0) {
                     //place is undefined
-                    apiManager.updatePlace(placeId, {
-                        name:placeInput,
+                    apiManager.makePlace(placeId, {
+                        name: placeInput,
                         visa_required: visaRequired.checked ? true : false
                     })
                 }
