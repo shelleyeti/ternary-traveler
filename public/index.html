@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travel Life</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="main-navbar-container">
+            <h1 id="main-navbar-h1">Mira's Blog</h1>
+            <ul class="nav nav-tabs sticky-top" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link text-info active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-info" id="itinerary-tab" data-toggle="tab" href="#itinerary" role="tab"
+                        aria-controls="itinerary" aria-selected="false">Itinerary</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="home-main-output-container">
+                        <div class="home-left-output-container"></div>
+                        <div class="home-right-output-container"></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
+                    <div class="itinerary-main-output-container">
+                        <div class="itinerary-top-output-container"></div>
+                        <div class="itinerary-bottom-output-container"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Modal to Add New Post START  -->
+    <div class="modal fade" id="add-new-post-modal" tabindex="-1" role="dialog"
+        aria-labelledby="add-new-post-modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-new-post-modalLongTitle">Add New Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Add New Input Fields START -->
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Places</button>
+                            <div class="dropdown-menu new-post-menu-main">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control place-input-field"
+                            aria-label="Text input with dropdown button">
+                    </div>
+                    <input class="form-control interest-input-field" type="text" placeholder="Interest Point">
+                    <div class="input-group">
+                        <textarea placeholder="Description" class="form-control description-input-field"
+                            aria-label="description"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control cost-input-field"
+                            aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add New Input Fields END -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-info save-input-button" data-dismiss="modal">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal to Add New Post END  -->
+
+    <!--Modal to Edit Post START  -->
+    <div class="modal fade" id="edit-post-modal" tabindex="-1" role="dialog" aria-labelledby="edit-post-modalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-post-modalLongTitle">Edit Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Edit Input Fields START -->
+                <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Places</button>
+                                <div class="dropdown-menu edit-menu-main">
+                                </div>
+                            </div>
+                            <input type="text" class="form-control place-edit-field"
+                                aria-label="Text input with dropdown button">
+                        </div>
+                    <input class="form-control interest-edit-field" type="text" placeholder="Interest Point">
+                    <div class="input-group">
+                        <textarea placeholder="Description" class="form-control description-edit-field"
+                            aria-label="description"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control cost-edit-field"
+                            aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="review" class="form-control review-edit-field"
+                                aria-label="description"></textarea>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                class="custom-control-input required-edit-field">
+                            <label class="custom-control-label" for="customRadioInline1">Visa Required</label>
+                        </div> <!-- class to use custom-control-input -->
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                class="custom-control-input not-required-edit-field">
+                            <label class="custom-control-label" for="customRadioInline2">Visa Not Required</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Edit Input Fields END -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-info update-input-button" data-dismiss="modal">Update
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal to Edit Post END  -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Browserify -->
+    <script src="bundle.js"></script>
+</body>
+
+</html>
