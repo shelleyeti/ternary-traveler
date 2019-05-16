@@ -87,7 +87,9 @@ const savetoDB ={
                         placeId: placeId,
                         name: editInterest,
                         description: editDescription,
-                        cost: parseInt(editCost)
+                        cost: parseInt(editCost),
+                        review: editReview,
+                        visa_required: visaRequired.checked ? true : false
                     }).then(() => {
                         itineraryList.buildItineraryList();
                     })
