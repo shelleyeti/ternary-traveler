@@ -1,6 +1,5 @@
 # Travel Blog
-## CRUD Project
-# Instructions
+## Instructions
 1. When the user opens the application, all points of interests should be displayed with their name, description, cost, review if it's not blank and the place it is located
 1.When the user opens the application, a form should be presented to the user in which the following properties of the point of interest can be provided
   - Name of the point of interest
