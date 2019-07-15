@@ -9,11 +9,11 @@
   - Given a user has entered in all details of a point of interest
   - When the user performs a gesture to save the point of interest
   - Then the point of interest should be displayed in the application
-1. When the user performs a gesture to edit the point of interest, the user should be presented with a form that has the cost and review, if it's not blank, pre-filled and there should be an affordance to save the edited cost and review
-1. When the user visits their application, all points of interest should be displayed and each point of interest should have an affordance to delete it
-1. When the user performs a gesture on the delete affordance, the user should be prompted to confirm the delete
-1. When a user is viewing the delete prompt When the user selects the confirmation affordance, the point of interest should be deleted And the confirmation message should disappear and the list of points of interest should be refreshed
-1. When a user is viewing the delete prompt When the user selects the cancel affordance, the point of interest should NOT be deleted And the confirmation message should disappear
+2. When the user performs a gesture to edit the point of interest, the user should be presented with a form that has the cost and review, if it's not blank, pre-filled and there should be an affordance to save the edited cost and review
+3. When the user visits their application, all points of interest should be displayed and each point of interest should have an affordance to delete it
+4. When the user performs a gesture on the delete affordance, the user should be prompted to confirm the delete
+5. When a user is viewing the delete prompt When the user selects the confirmation affordance, the point of interest should be deleted And the confirmation message should disappear and the list of points of interest should be refreshed
+6. When a user is viewing the delete prompt When the user selects the cancel affordance, the point of interest should NOT be deleted And the confirmation message should disappear
 
 ### Built With
 Javascript and Bootstrap
